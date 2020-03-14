@@ -1,10 +1,9 @@
 {
   "name": "covid19-spread",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "https://github.com/dennismorello/covid19-spread.git",
   "author": "Dennis Morello <dennismorello@gmail.com>",
-  "license": "GPL-3.0",
   "scripts": {
     "develop": "next dev",
     "build": "next build",
