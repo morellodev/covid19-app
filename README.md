@@ -1,3 +1,3 @@
-# COVID-19 Spread
+# COVID-19
 
-🦠 Real-time spread monitoring of COVID-19
+🦠 World-wide real-time monitoring of COVID-19
