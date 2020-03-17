@@ -1,7 +1,7 @@
 // Components
 import StatsCount from "./StatsCount";
 
-const Stats = ({ data }) => {
+const StatsGlobal = ({ data }) => {
   return (
     <div className="w-full bg-white rounded shadow-md lg:shadow-lg">
       <div className="flex flex-col md:flex-row justify-evenly">
@@ -13,4 +13,4 @@ const Stats = ({ data }) => {
   );
 };
 
-export default Stats;
+export default StatsGlobal;
