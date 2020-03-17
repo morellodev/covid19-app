@@ -28,7 +28,6 @@ export default class CustomDocument extends Document {
             color="#f56565"
           />
           <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <body className="leading-normal text-gray-900">
