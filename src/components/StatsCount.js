@@ -2,8 +2,8 @@ const formatter = new Intl.NumberFormat();
 
 const StatsCount = ({ count, label }) => {
   return (
-    <div className="flex flex-col px-8 py-6">
-      <p className="text-6xl font-bold text-center text-gray-500">
+    <div className="flex flex-col px-4 py-3 border-b-2 md:px-8 md:py-6 md:border-b-0 last:border-b-0">
+      <p className="text-4xl font-bold text-center text-gray-600 lg:text-6xl">
         {formatter.format(count)}
       </p>
       {label && (

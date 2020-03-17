@@ -2,12 +2,15 @@ import fetch from "node-fetch";
 
 // Components
 import Layout from "../components/Layout";
-import CovidStats from "../components/CovidStats";
+import Stats from "../components/Stats";
+import StatsByCountry from "../components/StatsByCountry";
 
 const Home = ({ data }) => {
   return (
     <Layout>
-      <CovidStats data={data} />
+      <Stats data={data} />
+      <div className="my-8" />
+      <StatsByCountry data={data} />
     </Layout>
   );
 };
