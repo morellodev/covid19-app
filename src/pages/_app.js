@@ -3,7 +3,7 @@ import Head from "next/head";
 // Styles
 import "../styles/tailwind.css";
 
-const CovidSpreadApp = ({ Component, pageProps }) => {
+const CovidApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -22,4 +22,4 @@ const CovidSpreadApp = ({ Component, pageProps }) => {
   );
 };
 
-export default CovidSpreadApp;
+export default CovidApp;
