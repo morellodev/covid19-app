@@ -13,9 +13,8 @@ const Home = ({ data }) => {
 };
 
 export async function getServerSideProps() {
-  const data = await fetch("https://bing.com/covid/data").then(response =>
-    response.json()
-  );
+  const res = await fetch("https://bing.com/covid/data");
+  const data = await res.json();
 
   return {
     props: {
