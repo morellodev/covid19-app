@@ -7,9 +7,10 @@ const nextConfig = {
     swDest: "static/service-worker.js",
     runtimeCaching: [
       {
-        urlPattern: /^https?.*|api/,
+        urlPattern: /^https?.*|\/api\//,
         handler: "NetworkFirst",
         options: {
+          cacheName: "httpsAndApiCalls",
           networkTimeoutSeconds: 15,
           expiration: {
             maxEntries: 150,
