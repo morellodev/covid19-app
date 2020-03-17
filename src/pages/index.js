@@ -9,7 +9,7 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Stats data={data} />
-      <StatsByCountry data={data} className="mt-8 md:mt-16" />
+      <StatsByCountry data={data} className="mt-8 lg:mt-16" />
     </Layout>
   );
 };
