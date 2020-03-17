@@ -1,4 +1,7 @@
-const formatter = new Intl.NumberFormat();
+const formatter = new Intl.NumberFormat("en-US", {
+  notation: "compact",
+  compactDisplay: "short"
+});
 
 const StatsCount = ({ count, label }) => {
   return (
