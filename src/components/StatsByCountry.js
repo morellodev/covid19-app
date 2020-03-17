@@ -1,8 +1,8 @@
 const formatter = new Intl.NumberFormat();
 
-const StatsByContry = ({ data, className }) => {
+const StatsByContry = ({ data, className="" }) => {
   return (
-    <div className={className}>
+    <div className={`overflow-x-auto ${className}`}>
       <table className="w-full bg-white rounded shadow-md table-auto lg:shadow-lg">
         <thead>
           <tr>
