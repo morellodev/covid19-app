@@ -22,8 +22,12 @@ export default class CustomDocument extends Document {
             sizes="16x16"
             href="/icons/favicon-16x16.png"
           />
+          <link
+            rel="mask-icon"
+            href="/icons/safari-pinned-tab.svg"
+            color="#f56565"
+          />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#f56565" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
