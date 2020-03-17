@@ -2,15 +2,14 @@ const withOffline = require("next-offline");
 
 const nextConfig = {
   target: "serverless",
-  transformManifest: manifest => ["/"].concat(manifest), // add the homepage to the cache
+  transformManifest: manifest => ["/"].concat(manifest),
   workboxOpts: {
     swDest: "static/service-worker.js",
     runtimeCaching: [
       {
-        urlPattern: /^https?.*/,
+        urlPattern: /^https?.*|api/,
         handler: "NetworkFirst",
         options: {
-          cacheName: "https-calls",
           networkTimeoutSeconds: 15,
           expiration: {
             maxEntries: 150,
