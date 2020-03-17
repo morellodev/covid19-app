@@ -1,9 +1,11 @@
 const formatter = new Intl.NumberFormat();
 
-const StatsByContry = ({ data, className="" }) => {
+const StatsByContry = ({ data, className = "" }) => {
   return (
-    <div className={`shadow-md lg:shadow-lg overflow-x-auto ${className}`}>
-      <table className="w-full bg-white rounded table-auto">
+    <div
+      className={`rounded shadow-md lg:shadow-lg overflow-x-auto ${className}`}
+    >
+      <table className="w-full bg-white table-auto">
         <thead>
           <tr>
             <th className="px-4 py-2 text-left">Country</th>
