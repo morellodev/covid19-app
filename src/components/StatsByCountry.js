@@ -5,7 +5,7 @@ const { format: percentFormat } = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2
 });
 
-const StatsByContry = ({ data }) => {
+const StatsByCountry = ({ data }) => {
   return (
     <div className="overflow-x-auto rounded shadow-md lg:shadow-lg">
       <table className="w-full bg-white table-auto">
@@ -51,4 +51,4 @@ const StatsByContry = ({ data }) => {
   );
 };
 
-export default StatsByContry;
+export default StatsByCountry;
