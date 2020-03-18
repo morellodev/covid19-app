@@ -15,7 +15,7 @@ const Header = () => {
               <div className="hidden px-6 lg:flex lg:items-center lg:justify-end lg:w-1/4">
                 <div className="flex items-center justify-start text-gray-500">
                   <a
-                    className="flex items-center block mr-5 hover:text-gray-700"
+                    className="flex items-center block mr-5 transition duration-200 ease-in-out hover:text-gray-700"
                     href="https://github.com/dennismorello/covid19-app"
                     target="_blank"
                     rel="noopener nofollow"
@@ -30,7 +30,7 @@ const Header = () => {
                     </svg>
                   </a>
                   <a
-                    className="flex items-center block hover:text-gray-700"
+                    className="flex items-center block transition duration-200 ease-in-out hover:text-gray-700"
                     href="https://twitter.com/dennismorello"
                     target="_blank"
                     rel="noopener nofollow"
