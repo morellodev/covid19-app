@@ -1,6 +1,9 @@
 const withOffline = require("next-offline");
 
 const nextConfig = {
+  env: {
+    GTM_ID: process.env.GTM_ID
+  },
   target: "serverless",
   transformManifest: manifest => ["/"].concat(manifest),
   workboxOpts: {

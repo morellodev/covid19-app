@@ -7,7 +7,7 @@ import "../styles/tailwind.css";
 
 const CovidApp = ({ Component, pageProps }) => {
   useEffect(() => {
-    const { gtmId } = pageProps;
+    const gtmId = process.env.GTM_ID;
 
     if (gtmId) {
       TagManager.initialize({ gtmId });
@@ -31,13 +31,5 @@ const CovidApp = ({ Component, pageProps }) => {
     </>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: {
-      gtmId: process.env.GTM_ID
-    }
-  };
-}
 
 export default CovidApp;
