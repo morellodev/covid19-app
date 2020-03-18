@@ -9,8 +9,8 @@ import StatsGlobal from "../components/StatsGlobal";
 const Home = ({ covidData }) => {
   const { data } = useSWR(
     "/api/covid",
-    async () => {
-      const res = await fetch("/api/covid");
+    async path => {
+      const res = await fetch(path);
       const data = await res.json();
 
       return data;
