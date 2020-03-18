@@ -1,7 +1,9 @@
 {
   "version": 2,
-  "env": {
-    "GTM_ID": "@gtm-covid19"
+  "build": {
+    "env": {
+      "GTM_ID": "@gtm-covid19"
+    }
   },
   "routes": [
     {
