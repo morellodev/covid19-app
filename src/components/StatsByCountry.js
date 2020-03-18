@@ -7,9 +7,9 @@ const StatsByContry = ({ data }) => {
         <thead>
           <tr>
             <th className="px-4 py-2 text-left">Country</th>
-            <th className="px-4 py-2">Confirmed</th>
-            <th className="px-4 py-2">Recovered</th>
-            <th className="px-4 py-2">Deceased</th>
+            <th className="px-4 py-2 text-right">Confirmed</th>
+            <th className="px-4 py-2 text-right">Recovered</th>
+            <th className="px-4 py-2 text-right">Deceased</th>
           </tr>
         </thead>
         <tbody>
@@ -21,13 +21,13 @@ const StatsByContry = ({ data }) => {
             return (
               <tr key={country.id} className="border-b-2 last:border-b-0">
                 <td className="px-4 py-2">{country.displayName}</td>
-                <td className="px-4 py-2 text-center variant-tabular-nums">
+                <td className="px-4 py-2 text-right variant-tabular-nums">
                   {totalConfirmed}
                 </td>
-                <td className="px-4 py-2 text-center variant-tabular-nums">
+                <td className="px-4 py-2 text-right variant-tabular-nums">
                   {totalRecovered}
                 </td>
-                <td className="px-4 py-2 text-center variant-tabular-nums">
+                <td className="px-4 py-2 text-right variant-tabular-nums">
                   {totalDeaths}
                 </td>
               </tr>
