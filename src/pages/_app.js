@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import Head from "next/head";
+import TagManager from "react-gtm-module";
 
 // Styles
 import "../styles/tailwind.css";
 
 const CovidApp = ({ Component, pageProps }) => {
+  useEffect(() => {
+    TagManager.initialize({ gtmId: process.env.GTM_ID });
+  }, []);
+
   return (
     <>
       <Head>
