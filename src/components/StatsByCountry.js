@@ -1,10 +1,8 @@
 const formatter = new Intl.NumberFormat();
 
-const StatsByContry = ({ data, className = "" }) => {
+const StatsByContry = ({ data }) => {
   return (
-    <div
-      className={`rounded shadow-md lg:shadow-lg overflow-x-auto ${className}`}
-    >
+    <div className="overflow-x-auto rounded shadow-md lg:shadow-lg">
       <table className="w-full bg-white table-auto">
         <thead>
           <tr>
@@ -23,9 +21,15 @@ const StatsByContry = ({ data, className = "" }) => {
             return (
               <tr key={country.id} className="border-b-2 last:border-b-0">
                 <td className="px-4 py-2">{country.displayName}</td>
-                <td className="px-4 py-2 text-center">{totalConfirmed}</td>
-                <td className="px-4 py-2 text-center">{totalRecovered}</td>
-                <td className="px-4 py-2 text-center">{totalDeaths}</td>
+                <td className="px-4 py-2 text-center variant-tabular-nums">
+                  {totalConfirmed}
+                </td>
+                <td className="px-4 py-2 text-center variant-tabular-nums">
+                  {totalRecovered}
+                </td>
+                <td className="px-4 py-2 text-center variant-tabular-nums">
+                  {totalDeaths}
+                </td>
               </tr>
             );
           })}

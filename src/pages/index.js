@@ -21,7 +21,9 @@ const Home = ({ covidData }) => {
   return (
     <Layout>
       <StatsGlobal data={data} />
-      <StatsByCountry data={data} className="mt-8 lg:mt-16" />
+      <div className="mt-8 lg:mt-16">
+        <StatsByCountry data={data} />
+      </div>
     </Layout>
   );
 };
