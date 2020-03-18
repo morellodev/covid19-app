@@ -1,4 +1,9 @@
-const formatter = new Intl.NumberFormat();
+const { format: numberFormat } = new Intl.NumberFormat();
+
+const { format: percentFormat } = new Intl.NumberFormat(undefined, {
+  style: "percent",
+  maximumFractionDigits: 2
+});
 
 const StatsByContry = ({ data }) => {
   return (
@@ -10,13 +15,17 @@ const StatsByContry = ({ data }) => {
             <th className="px-4 py-2 text-right">Confirmed</th>
             <th className="px-4 py-2 text-right">Recovered</th>
             <th className="px-4 py-2 text-right">Deceased</th>
+            <th className="px-4 py-2 text-right">Mortality</th>
           </tr>
         </thead>
         <tbody>
           {data.areas.map(country => {
-            const totalConfirmed = formatter.format(country.totalConfirmed);
-            const totalRecovered = formatter.format(country.totalRecovered);
-            const totalDeaths = formatter.format(country.totalDeaths);
+            const totalConfirmed = numberFormat(country.totalConfirmed);
+            const totalRecovered = numberFormat(country.totalRecovered);
+            const totalDeaths = numberFormat(country.totalDeaths);
+            const mortality = percentFormat(
+              country.totalDeaths / country.totalConfirmed
+            );
 
             return (
               <tr key={country.id} className="border-b-2 last:border-b-0">
@@ -29,6 +38,9 @@ const StatsByContry = ({ data }) => {
                 </td>
                 <td className="px-4 py-2 text-right variant-tabular-nums">
                   {totalDeaths}
+                </td>
+                <td className="px-4 py-2 text-right variant-tabular-nums">
+                  {mortality}
                 </td>
               </tr>
             );
