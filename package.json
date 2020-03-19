@@ -11,6 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "next": "^9.3.0",
     "next-offline": "^5.0.0",
     "node-fetch": "^2.6.0",
