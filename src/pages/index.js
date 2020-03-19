@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 // Components
 import Layout from "../components/Layout";
-import StatsByCountry from "../components/StatsByCountry";
+import StatsByArea from "../components/StatsByArea";
 import StatsGlobal from "../components/StatsGlobal";
 
 const Home = ({ covidData }) => {
@@ -22,7 +22,7 @@ const Home = ({ covidData }) => {
     <Layout>
       <StatsGlobal data={data} />
       <div className="mt-8 lg:mt-16">
-        <StatsByCountry data={data} />
+        <StatsByArea data={data} />
       </div>
     </Layout>
   );
