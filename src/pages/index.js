@@ -29,8 +29,8 @@ const Home = ({ covidData }) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch("https://bing.com/covid/data");
-  const covidData = await res.json();
+  const covidRes = await fetch("https://bing.com/covid/data");
+  const covidData = await covidRes.json();
 
   return {
     props: {
