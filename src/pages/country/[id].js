@@ -25,9 +25,7 @@ const Country = ({ errorCode, covidCountryData }) => {
 
   return (
     <Layout>
-      <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-        {data.displayName}
-      </h1>
+      <h1 className="text-3xl font-bold md:text-4xl">{data.displayName}</h1>
       <div className="mt-4 lg:mt-8">
         <StatsGlobal data={data} />
       </div>
