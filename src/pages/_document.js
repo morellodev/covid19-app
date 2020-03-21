@@ -30,6 +30,32 @@ export default class CustomDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#f7fafc" />
+
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="COVID-19" />
+          <meta
+            property="og:description"
+            content="World-wide real-time monitoring of COVID-19"
+          />
+          <meta property="og:url" content="https://covid19.morello.dev" />
+          <meta
+            property="og:image"
+            content="https://covid19.morello.dev/twitter-card.png"
+          />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:creator" content="@DennisMorello" />
+          <meta name="twitter:title" content="COVID-19" />
+          <meta
+            name="twitter:description"
+            content="World-wide real-time monitoring of COVID-19"
+          />
+          <meta name="twitter:url" content="https://covid19.morello.dev" />
+          <meta
+            name="twitter:image"
+            content="https://covid19.morello.dev/twitter-card.png"
+          />
         </Head>
         <body className="leading-normal text-gray-900">
           <Main />
