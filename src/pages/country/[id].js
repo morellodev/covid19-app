@@ -1,17 +1,19 @@
-import fetch from "node-fetch";
 import Error from "next/error";
 import useSWR from "swr";
+
+// APIs
+import { fetchCovidDataByCountry } from "../../api/covid";
 
 // Components
 import Layout from "../../components/Layout";
 import StatsByArea from "../../components/StatsByArea";
 import StatsGlobal from "../../components/StatsGlobal";
 
-const Country = ({ errorCode, covidCountryData }) => {
+const Country = ({ errorCode, covidCountryData, countryId }) => {
   const { data } = useSWR(
-    errorCode ? false : `/api/covid/${covidCountryData.id}`,
-    async path => {
-      const res = await fetch(path);
+    errorCode ? false : ["/api/covid", countryId],
+    async (url, id) => {
+      const res = await fetch(`${url}/${id}`);
       const data = await res.json();
 
       return data;
@@ -44,15 +46,13 @@ const Country = ({ errorCode, covidCountryData }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const covidRes = await fetch("https://bing.com/covid/data");
-  const covidData = await covidRes.json();
-
-  const covidCountryData =
-    covidData.areas.find(area => area.id === params.id) ?? null;
+  const countryId = params.id;
+  const covidCountryData = await fetchCovidDataByCountry(countryId);
 
   return {
     props: {
       covidCountryData,
+      countryId,
       errorCode: covidCountryData ? false : 404
     }
   };

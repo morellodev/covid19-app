@@ -1,5 +1,7 @@
-import fetch from "node-fetch";
 import useSWR from "swr";
+
+// APIs
+import { fetchCovidData } from "../api/covid";
 
 // Components
 import Layout from "../components/Layout";
@@ -9,8 +11,8 @@ import StatsGlobal from "../components/StatsGlobal";
 const Home = ({ covidData }) => {
   const { data } = useSWR(
     "/api/covid",
-    async path => {
-      const res = await fetch(path);
+    async url => {
+      const res = await fetch(url);
       const data = await res.json();
 
       return data;
@@ -29,8 +31,7 @@ const Home = ({ covidData }) => {
 };
 
 export async function getServerSideProps() {
-  const covidRes = await fetch("https://bing.com/covid/data");
-  const covidData = await covidRes.json();
+  const covidData = await fetchCovidData();
 
   return {
     props: {
