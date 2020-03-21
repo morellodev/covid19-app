@@ -40,7 +40,11 @@ export default class CustomDocument extends Document {
           />
           <meta property="og:url" content="https://covid19.morello.dev" />
           <meta
-            property="og:image:url"
+            property="og:image"
+            content="https://covid19.morello.dev/og-card.png"
+          />
+          <meta
+            property="og:image:secure_url"
             content="https://covid19.morello.dev/og-card.png"
           />
           <meta property="og:image:width" content="512" />
