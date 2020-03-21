@@ -40,9 +40,11 @@ export default class CustomDocument extends Document {
           />
           <meta property="og:url" content="https://covid19.morello.dev" />
           <meta
-            property="og:image"
-            content="https://covid19.morello.dev/twitter-card.png"
+            property="og:image:url"
+            content="https://covid19.morello.dev/og-card.png"
           />
+          <meta property="og:image:width" content="512" />
+          <meta property="og:image:height" content="512" />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="@DennisMorello" />
