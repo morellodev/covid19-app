@@ -5,6 +5,18 @@ export default class CustomDocument extends Document {
     return (
       <html lang="en-US" className="antialiased bg-gray-100">
         <Head>
+          <meta charSet="UTF-8" />
+          <meta
+            name="description"
+            content="World-wide real-time monitoring of COVID-19"
+          />
+          <meta name="keywords" content="Coronavirus,COVID,COVID19,COVID-19" />
+          <meta name="author" content="Dennis Morello" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
