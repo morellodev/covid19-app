@@ -11,7 +11,9 @@ import "../styles/nprogress.css";
 // NProgress Set-up
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", url => {
-  NProgress.start();
+  if (url !== Router.pathname) {
+    NProgress.start();
+  }
 });
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
