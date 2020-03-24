@@ -34,11 +34,7 @@ const Country = ({ errorCode, covidCountryData, countryId }) => {
 
       {data.areas?.length ? (
         <div className="mt-8 lg:mt-16">
-          <StatsByArea
-            data={data}
-            areaColumnLabel="State"
-            canNavigate={false}
-          />
+          <StatsByArea data={data} areaColumnLabel="Area" canNavigate={false} />
         </div>
       ) : null}
     </Layout>
