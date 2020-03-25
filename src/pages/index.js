@@ -8,16 +8,18 @@ import Layout from "../components/Layout";
 import StatsByArea from "../components/StatsByArea";
 import StatsGlobal from "../components/StatsGlobal";
 
-const Home = ({ covidData }) => {
+const getUrl = () => `/api/covid`;
+
+const Home = ({ initialData }) => {
   const { data } = useSWR(
-    "/api/covid",
+    getUrl(),
     async url => {
       const res = await fetch(url);
       const data = await res.json();
 
       return data;
     },
-    { initialData: covidData }
+    { initialData }
   );
 
   return (
@@ -31,11 +33,11 @@ const Home = ({ covidData }) => {
 };
 
 export async function getServerSideProps() {
-  const covidData = await fetchCovidData();
+  const initialData = await fetchCovidData();
 
   return {
     props: {
-      covidData
+      initialData
     }
   };
 }

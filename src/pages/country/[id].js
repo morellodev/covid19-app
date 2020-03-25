@@ -9,16 +9,19 @@ import Layout from "../../components/Layout";
 import StatsByArea from "../../components/StatsByArea";
 import StatsGlobal from "../../components/StatsGlobal";
 
-const Country = ({ errorCode, covidCountryData, countryId }) => {
+const getUrl = (countryId, errorCode) =>
+  errorCode ? false : `/api/covid/${countryId}`;
+
+const Country = ({ countryId, errorCode, initialData }) => {
   const { data } = useSWR(
-    errorCode ? false : ["/api/covid", countryId],
-    async (url, id) => {
-      const res = await fetch(`${url}/${id}`);
+    getUrl(countryId, errorCode),
+    async url => {
+      const res = await fetch(url);
       const data = await res.json();
 
       return data;
     },
-    { initialData: covidCountryData }
+    { initialData }
   );
 
   if (errorCode) {
@@ -43,13 +46,13 @@ const Country = ({ errorCode, covidCountryData, countryId }) => {
 
 export async function getServerSideProps({ params }) {
   const countryId = params.id;
-  const covidCountryData = await fetchCovidDataByCountry(countryId);
+  const initialData = await fetchCovidDataByCountry(countryId);
 
   return {
     props: {
-      covidCountryData,
       countryId,
-      errorCode: covidCountryData ? false : 404
+      errorCode: initialData ? false : 404,
+      initialData
     }
   };
 }
