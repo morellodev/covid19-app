@@ -9,11 +9,7 @@ const { format: percentFormat } = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2
 });
 
-const StatsByArea = ({
-  areaColumnLabel = "Country",
-  canNavigate = true,
-  data
-}) => {
+const StatsByArea = ({ canNavigate = true, data }) => {
   const { push } = useRouter();
 
   const navigateToCountry = useCallback(countryId => {
@@ -41,7 +37,9 @@ const StatsByArea = ({
         )}
         onClick={onRowClicked}
       >
-        <td className="px-4 py-2">{country.displayName}</td>
+        <th className="px-4 py-2 text-left" scope="row">
+          {country.displayName}
+        </th>
         <td className="px-4 py-2 text-right variant-tabular-nums">
           {totalConfirmed}
         </td>
@@ -63,11 +61,19 @@ const StatsByArea = ({
       <table className="w-full bg-white table-auto">
         <thead>
           <tr>
-            <th className="px-4 py-2 text-left">{areaColumnLabel}</th>
-            <th className="px-4 py-2 text-right">Confirmed</th>
-            <th className="px-4 py-2 text-right">Recovered</th>
-            <th className="px-4 py-2 text-right">Deceased</th>
-            <th className="px-4 py-2 text-right">Mortality</th>
+            <th scope="col" />
+            <th className="px-4 py-2 text-right" scope="col">
+              Confirmed
+            </th>
+            <th className="px-4 py-2 text-right" scope="col">
+              Recovered
+            </th>
+            <th className="px-4 py-2 text-right" scope="col">
+              Deceased
+            </th>
+            <th className="px-4 py-2 text-right" scope="col">
+              Mortality
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -37,7 +37,7 @@ const Country = ({ countryId, errorCode, initialData }) => {
 
       {data.areas?.length ? (
         <div className="mt-8 lg:mt-16">
-          <StatsByArea data={data} areaColumnLabel="Area" canNavigate={false} />
+          <StatsByArea data={data} canNavigate={false} />
         </div>
       ) : null}
     </Layout>
