@@ -37,9 +37,7 @@ const StatsByArea = ({ canNavigate = true, data }) => {
         )}
         onClick={onRowClicked}
       >
-        <th className="px-4 py-2 text-left" scope="row">
-          {country.displayName}
-        </th>
+        <td className="px-4 py-2 text-left">{country.displayName}</td>
         <td className="px-4 py-2 text-right variant-tabular-nums">
           {totalConfirmed}
         </td>
@@ -61,7 +59,9 @@ const StatsByArea = ({ canNavigate = true, data }) => {
       <table className="w-full bg-white table-auto">
         <thead>
           <tr>
-            <th scope="col" />
+            <th className="px-4 py-2 text-left" scope="col">
+              Area
+            </th>
             <th className="px-4 py-2 text-right" scope="col">
               Confirmed
             </th>
