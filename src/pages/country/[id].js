@@ -10,7 +10,7 @@ import StatsByArea from "../../components/StatsByArea";
 import StatsGlobal from "../../components/StatsGlobal";
 
 const getUrl = (countryId, errorCode) =>
-  errorCode ? false : `/api/covid/${countryId}`;
+  errorCode ? null : `/api/covid/${countryId}`;
 
 const Country = ({ countryId, errorCode, initialData }) => {
   const { data } = useSWR(
