@@ -1,19 +1,15 @@
-import useSWR from "swr";
-
-// APIs
-import { fetchCovidData } from "../api/covid";
-
-// Components
 import Layout from "../components/Layout";
 import StatsByArea from "../components/StatsByArea";
 import StatsGlobal from "../components/StatsGlobal";
+import { fetchCovidData } from "../api/covid";
+import useSWR from "swr";
 
 const getUrl = () => `/api/covid`;
 
 const Home = ({ initialData }) => {
   const { data } = useSWR(
     getUrl(),
-    async url => {
+    async (url) => {
       const res = await fetch(url);
       const data = await res.json();
 

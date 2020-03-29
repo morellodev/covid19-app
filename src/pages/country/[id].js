@@ -1,13 +1,9 @@
 import Error from "next/error";
-import useSWR from "swr";
-
-// APIs
-import { fetchCovidDataByCountry } from "../../api/covid";
-
-// Components
 import Layout from "../../components/Layout";
 import StatsByArea from "../../components/StatsByArea";
 import StatsGlobal from "../../components/StatsGlobal";
+import { fetchCovidDataByCountry } from "../../api/covid";
+import useSWR from "swr";
 
 const getUrl = (countryId, errorCode) =>
   errorCode ? null : `/api/covid/${countryId}`;
@@ -15,7 +11,7 @@ const getUrl = (countryId, errorCode) =>
 const Country = ({ countryId, errorCode, initialData }) => {
   const { data } = useSWR(
     getUrl(countryId, errorCode),
-    async url => {
+    async (url) => {
       const res = await fetch(url);
       const data = await res.json();
 

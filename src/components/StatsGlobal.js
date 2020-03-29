@@ -1,4 +1,3 @@
-// Components
 import StatsCount from "./StatsCount";
 
 const StatsGlobal = ({ data }) => {

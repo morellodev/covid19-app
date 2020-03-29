@@ -1,16 +1,14 @@
-import { useEffect } from "react";
-import Head from "next/head";
-import Router from "next/router";
-import NProgress from "nprogress";
-import TagManager from "react-gtm-module";
-
-// Styles
-import "../styles/tailwind.css";
 import "../styles/nprogress.css";
+import "../styles/tailwind.css";
+import Head from "next/head";
+import NProgress from "nprogress";
+import Router from "next/router";
+import TagManager from "react-gtm-module";
+import { useEffect } from "react";
 
 // NProgress Set-up
 NProgress.configure({ showSpinner: false });
-Router.events.on("routeChangeStart", url => {
+Router.events.on("routeChangeStart", (url) => {
   if (url !== Router.pathname) {
     NProgress.start();
   }

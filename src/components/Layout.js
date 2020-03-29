@@ -1,4 +1,3 @@
-// Components
 import Header from "./Header";
 
 const Layout = ({ children }) => {

@@ -1,4 +1,3 @@
-// Components
 import Logo from "./Logo";
 
 const Header = () => {
@@ -18,7 +17,7 @@ const Header = () => {
                     className="flex items-center block mr-5 transition duration-200 ease-in-out hover:text-gray-700"
                     href="https://github.com/dennismorello/covid19-app"
                     target="_blank"
-                    rel="noopener nofollow"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="w-5 h-5 fill-current"
@@ -33,7 +32,7 @@ const Header = () => {
                     className="flex items-center block transition duration-200 ease-in-out hover:text-gray-700"
                     href="https://twitter.com/dennismorello"
                     target="_blank"
-                    rel="noopener nofollow"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="w-5 h-5 fill-current"

@@ -14,7 +14,9 @@ export async function fetchCovidData() {
 export async function fetchCovidDataByCountry(countryId) {
   const covidData = await fetchCovidData();
 
-  const covidCountryData = covidData.areas.find(area => area.id === countryId);
+  const covidCountryData = covidData.areas.find(
+    (area) => area.id === countryId
+  );
 
   return covidCountryData ?? null;
 }

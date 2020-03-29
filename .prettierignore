@@ -1,0 +1,10 @@
+.next
+.eslintignore
+.gitignore
+.prettierignore
+LICENSE
+package.json
+package-lock.json
+yarn.lock
+public
+node_modules
