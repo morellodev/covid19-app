@@ -1,33 +1,32 @@
 import CountryChart from "../../components/CountryChart";
 import Layout from "../../components/Layout";
 import Link from "next/link";
-import { fetchCovidDataByCountry } from "../../api/covid";
-import useSWR from "swr";
+import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 
 const getUrl = (countrySlug) => `/api/covid/${countrySlug}`;
 
-const Country = ({ countrySlug, initialData }) => {
-  const { data } = useSWR(
-    getUrl(countrySlug),
-    async (url) => {
-      const res = await fetch(url);
-      const data = await res.json();
+const Country = () => {
+  const router = useRouter();
 
-      return data;
-    },
-    { initialData }
-  );
+  const { data, status } = useQuery(getUrl(router.query.slug), async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
 
-  return data ? (
+    return data;
+  });
+
+  return status === "loading" || data ? (
     <Layout>
       <h1 className="text-3xl font-bold text-gray-700 md:text-4xl">
-        {data.Country}
+        {data?.Country}
       </h1>
       <div className="mt-8 lg:mt-16">
         <CountryChart
-          confirmed={data.Confirmed}
-          recovered={data.Recovered}
-          deaths={data.Deaths}
+          confirmed={data?.Confirmed}
+          recovered={data?.Recovered}
+          deaths={data?.Deaths}
+          isLoading={status === "loading"}
         />
       </div>
     </Layout>
@@ -44,17 +43,5 @@ const Country = ({ countrySlug, initialData }) => {
     </Layout>
   );
 };
-
-export async function getServerSideProps({ params }) {
-  const countrySlug = params.slug;
-  const initialData = await fetchCovidDataByCountry(countrySlug);
-
-  return {
-    props: {
-      countrySlug,
-      initialData
-    }
-  };
-}
 
 export default Country;

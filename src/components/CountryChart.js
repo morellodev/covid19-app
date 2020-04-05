@@ -6,14 +6,21 @@ const { format: dateFormat } = new Intl.DateTimeFormat(undefined, {
   day: "numeric"
 });
 
-const CountryChart = ({ confirmed, recovered, deaths }) => {
+const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
   return (
     <ReactEcharts
+      showLoading={isLoading}
       style={{ height: "60vh" }}
       option={{
+        grid: {
+          left: 20,
+          right: 20,
+          bottom: 20,
+          containLabel: true
+        },
         xAxis: {
           type: "category",
-          data: confirmed.map((data) => dateFormat(new Date(data.Date)))
+          data: confirmed?.map((data) => dateFormat(new Date(data.Date)))
         },
         yAxis: {
           type: "value"
@@ -24,17 +31,17 @@ const CountryChart = ({ confirmed, recovered, deaths }) => {
         legend: { data: ["Confirmed", "Recovered", "Deaths"] },
         series: [
           {
-            data: confirmed.map((data) => data.Cases),
+            data: confirmed?.map((data) => data.Cases),
             name: "Confirmed",
             type: "line"
           },
           {
-            data: recovered.map((data) => data.Cases),
+            data: recovered?.map((data) => data.Cases),
             name: "Recovered",
             type: "line"
           },
           {
-            data: deaths.map((data) => data.Cases),
+            data: deaths?.map((data) => data.Cases),
             name: "Deaths",
             type: "line"
           }

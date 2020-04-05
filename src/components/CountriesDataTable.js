@@ -8,7 +8,7 @@ const { format: percentFormat } = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2
 });
 
-const CountriesDataTable = ({ data }) => {
+const CountriesDataTable = ({ data, isLoading }) => {
   const router = useRouter();
 
   const navigateToCountry = useCallback(
@@ -54,7 +54,7 @@ const CountriesDataTable = ({ data }) => {
     [navigateToCountry]
   );
 
-  return (
+  return isLoading ? null : (
     <div className="overflow-x-auto rounded shadow-md lg:shadow-lg">
       <table className="w-full bg-white table-auto">
         <thead>
