@@ -10,6 +10,7 @@ const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
   return (
     <ReactEcharts
       showLoading={isLoading}
+      loadingOption={{ maskColor: "transparent" }}
       style={{ height: "60vh" }}
       option={{
         grid: {
