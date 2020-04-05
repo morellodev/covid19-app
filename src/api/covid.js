@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import { groupCountryDataByDate } from "../utils/transformers";
+import isEmpty from "lodash/isEmpty";
 
 const COVID_API_URL = "https://api.covid19api.com";
 
@@ -22,6 +23,10 @@ export async function fetchCovidDataByCountry(countrySlug) {
     recoveredRes.json(),
     deathsRes.json()
   ]);
+
+  if (isEmpty(confirmedData)) {
+    return null;
+  }
 
   return {
     Country: confirmedData[0].Country,
