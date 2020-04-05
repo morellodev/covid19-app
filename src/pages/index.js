@@ -1,10 +1,10 @@
+import CountriesDataTable from "../components/CountriesDataTable";
 import Layout from "../components/Layout";
-import StatsByArea from "../components/StatsByArea";
 import StatsGlobal from "../components/StatsGlobal";
-import { fetchCovidData } from "../api/covid";
+import { fetchCovidSummary } from "../api/covid";
 import useSWR from "swr";
 
-const getUrl = () => `/api/covid`;
+const getUrl = () => `/api/covid/summary`;
 
 const Home = ({ initialData }) => {
   const { data } = useSWR(
@@ -20,16 +20,20 @@ const Home = ({ initialData }) => {
 
   return (
     <Layout>
-      <StatsGlobal data={data} />
+      <StatsGlobal
+        confirmed={data.Global.TotalConfirmed}
+        recovered={data.Global.TotalRecovered}
+        deaths={data.Global.TotalDeaths}
+      />
       <div className="mt-8 lg:mt-16">
-        <StatsByArea data={data} />
+        <CountriesDataTable data={data.Countries} />
       </div>
     </Layout>
   );
 };
 
 export async function getServerSideProps() {
-  const initialData = await fetchCovidData();
+  const initialData = await fetchCovidSummary();
 
   return {
     props: {

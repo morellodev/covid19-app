@@ -1,22 +1,33 @@
 import fetch from "node-fetch";
 
-export async function fetchCovidData() {
-  const covidRes = await fetch("https://bing.com/covid/data");
+const COVID_API_URL = "https://api.covid19api.com";
 
-  if (covidRes.ok) {
-    const covidData = await covidRes.json();
-    return covidData;
-  }
+export async function fetchCovidSummary() {
+  const covidRes = await fetch(`${COVID_API_URL}/summary`);
+  const covidData = await covidRes.json();
 
-  return null;
+  return covidData;
 }
 
-export async function fetchCovidDataByCountry(countryId) {
-  const covidData = await fetchCovidData();
+export async function fetchCovidDataByCountry(countrySlug) {
+  const [confirmedRes, recoveredRes, deathsRes] = await Promise.all([
+    fetch(`${COVID_API_URL}/country/${countrySlug}/status/confirmed`),
+    fetch(`${COVID_API_URL}/country/${countrySlug}/status/recovered`),
+    fetch(`${COVID_API_URL}/country/${countrySlug}/status/deaths`)
+  ]);
 
-  const covidCountryData = covidData.areas.find(
-    (area) => area.id === countryId
-  );
+  const [confirmedData, recoveredData, deathsData] = await Promise.all([
+    confirmedRes.json(),
+    recoveredRes.json(),
+    deathsRes.json()
+  ]);
 
-  return covidCountryData ?? null;
+  return {
+    Country: confirmedData[0].Country,
+    CountryCode: confirmedData[0].CountryCode,
+    Slug: countrySlug,
+    Confirmed: confirmedData,
+    Recovered: recoveredData,
+    Deaths: deathsData
+  };
 }

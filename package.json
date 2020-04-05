@@ -15,7 +15,8 @@
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
-    "classnames": "^2.2.6",
+    "echarts": "^4.7.0",
+    "echarts-for-react": "^2.0.15-beta.1",
     "next": "^9.3.0",
     "next-offline": "^5.0.0",
     "node-fetch": "^2.6.0",

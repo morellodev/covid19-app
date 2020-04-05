@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 
@@ -9,39 +8,34 @@ const { format: percentFormat } = new Intl.NumberFormat(undefined, {
   maximumFractionDigits: 2
 });
 
-const StatsByArea = ({ canNavigate = true, data }) => {
+const CountriesDataTable = ({ data }) => {
   const router = useRouter();
 
   const navigateToCountry = useCallback(
-    (countryId) => {
-      router.push("/country/[id]", `/country/${countryId}`);
+    (countrySlug) => {
+      router.push("/country/[slug]", `/country/${countrySlug}`);
     },
     [router]
   );
 
   const renderRow = useCallback(
     (country) => {
-      const totalConfirmed = numberFormat(country.totalConfirmed);
-      const totalRecovered = numberFormat(country.totalRecovered);
-      const totalDeaths = numberFormat(country.totalDeaths);
-      const mortality = country.totalConfirmed
-        ? percentFormat(country.totalDeaths / country.totalConfirmed)
+      const totalConfirmed = numberFormat(country.TotalConfirmed);
+      const totalRecovered = numberFormat(country.TotalRecovered);
+      const totalDeaths = numberFormat(country.TotalDeaths);
+      const mortality = country.TotalConfirmed
+        ? percentFormat(country.TotalDeaths / country.TotalConfirmed)
         : "–";
 
-      const onRowClicked = canNavigate
-        ? () => navigateToCountry(country.id)
-        : undefined;
+      const onRowClicked = () => navigateToCountry(country.Slug);
 
       return (
         <tr
-          key={country.id}
-          className={classNames(
-            { "cursor-pointer": canNavigate },
-            "transition duration-200 ease-in-out border-b-2 last:border-b-0 hover:bg-gray-100"
-          )}
+          key={country.CountryCode}
+          className="transition duration-200 ease-in-out border-b-2 cursor-pointer last:border-b-0 hover:bg-gray-100"
           onClick={onRowClicked}
         >
-          <td className="px-4 py-2 text-left">{country.displayName}</td>
+          <td className="px-4 py-2 text-left">{country.Country}</td>
           <td className="px-4 py-2 text-right variant-tabular-nums">
             {totalConfirmed}
           </td>
@@ -57,7 +51,7 @@ const StatsByArea = ({ canNavigate = true, data }) => {
         </tr>
       );
     },
-    [canNavigate, navigateToCountry]
+    [navigateToCountry]
   );
 
   return (
@@ -66,7 +60,7 @@ const StatsByArea = ({ canNavigate = true, data }) => {
         <thead>
           <tr>
             <th className="px-4 py-2 text-left" scope="col">
-              Area
+              Country
             </th>
             <th className="px-4 py-2 text-right" scope="col">
               Confirmed
@@ -83,8 +77,11 @@ const StatsByArea = ({ canNavigate = true, data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.areas
-            .sort((a, b) => b.totalConfirmed - a.totalConfirmed)
+          {data
+            .sort(
+              (countryA, countryB) =>
+                countryB.TotalConfirmed - countryA.TotalConfirmed
+            )
             .map((country) => renderRow(country))}
         </tbody>
       </table>
@@ -92,4 +89,4 @@ const StatsByArea = ({ canNavigate = true, data }) => {
   );
 };
 
-export default StatsByArea;
+export default CountriesDataTable;

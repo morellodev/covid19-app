@@ -1,12 +1,12 @@
 import StatsCount from "./StatsCount";
 
-const StatsGlobal = ({ data }) => {
+const StatsGlobal = ({ confirmed, recovered, deaths }) => {
   return (
     <div className="w-full bg-white rounded shadow-md lg:shadow-lg">
       <div className="flex flex-col md:flex-row justify-evenly">
-        <StatsCount count={data.totalConfirmed} label="Confirmed" />
-        <StatsCount count={data.totalRecovered} label="Recovered" />
-        <StatsCount count={data.totalDeaths} label="Deceased" />
+        <StatsCount count={confirmed} label="Confirmed" />
+        <StatsCount count={recovered} label="Recovered" />
+        <StatsCount count={deaths} label="Deceased" />
       </div>
     </div>
   );
