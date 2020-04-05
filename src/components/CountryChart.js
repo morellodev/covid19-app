@@ -1,18 +1,19 @@
 import ReactEcharts from "echarts-for-react";
 
-const { format: dateFormat } = new Intl.DateTimeFormat();
+const { format: dateFormat } = new Intl.DateTimeFormat(undefined, {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
 
-const CountryChart = ({ data }) => {
+const CountryChart = ({ confirmed, recovered, deaths }) => {
   return (
     <ReactEcharts
       style={{ height: "60vh" }}
       option={{
         xAxis: {
           type: "category",
-          data: data.Confirmed.map((data) => data.Date),
-          axisLabel: {
-            formatter: (value) => dateFormat(new Date(value))
-          }
+          data: confirmed.map((data) => dateFormat(new Date(data.Date)))
         },
         yAxis: {
           type: "value"
@@ -23,17 +24,17 @@ const CountryChart = ({ data }) => {
         legend: { data: ["Confirmed", "Recovered", "Deaths"] },
         series: [
           {
-            data: data.Confirmed.map((data) => data.Cases),
+            data: confirmed.map((data) => data.Cases),
             name: "Confirmed",
             type: "line"
           },
           {
-            data: data.Recovered.map((data) => data.Cases),
+            data: recovered.map((data) => data.Cases),
             name: "Recovered",
             type: "line"
           },
           {
-            data: data.Deaths.map((data) => data.Cases),
+            data: deaths.map((data) => data.Cases),
             name: "Deaths",
             type: "line"
           }

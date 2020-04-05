@@ -21,7 +21,11 @@ const Country = ({ countrySlug, initialData }) => {
     <Layout>
       <h1 className="text-3xl font-bold md:text-4xl">{data.Country}</h1>
       <div className="mt-8 lg:mt-16">
-        <CountryChart data={data} />
+        <CountryChart
+          confirmed={data.Confirmed}
+          recovered={data.Recovered}
+          deaths={data.Deaths}
+        />
       </div>
     </Layout>
   );
