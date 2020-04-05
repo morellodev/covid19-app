@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { groupCountryDataByDate } from "../utils/transformers";
 
 const COVID_API_URL = "https://api.covid19api.com";
 
@@ -26,8 +27,8 @@ export async function fetchCovidDataByCountry(countrySlug) {
     Country: confirmedData[0].Country,
     CountryCode: confirmedData[0].CountryCode,
     Slug: countrySlug,
-    Confirmed: confirmedData,
-    Recovered: recoveredData,
-    Deaths: deathsData
+    Confirmed: groupCountryDataByDate(confirmedData),
+    Recovered: groupCountryDataByDate(recoveredData),
+    Deaths: groupCountryDataByDate(deathsData)
   };
 }
