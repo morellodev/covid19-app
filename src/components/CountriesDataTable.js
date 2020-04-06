@@ -35,19 +35,19 @@ const CountriesDataTable = ({ data, isLoading }) => {
           className="transition duration-200 ease-in-out cursor-pointer last:border-b-0 hover:bg-gray-100"
           onClick={onRowClicked}
         >
-          <td className="px-6 py-4 text-left text-gray-900 whitespace-no-wrap border-b border-gray-200">
+          <td className="px-6 py-4 text-left text-gray-900 border-b border-gray-200">
             {country.Country}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 whitespace-no-wrap border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
             {totalConfirmed}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 whitespace-no-wrap border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
             {totalRecovered}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 whitespace-no-wrap border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
             {totalDeaths}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 whitespace-no-wrap border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
             {mortality}
           </td>
         </tr>
