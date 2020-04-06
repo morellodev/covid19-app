@@ -2,7 +2,7 @@ import StatsCount from "./StatsCount";
 
 const StatsGlobal = ({ confirmed, recovered, deaths, isLoading }) => {
   return (
-    <div className="w-full bg-white shadow sm:rounded-lg">
+    <div className="min-w-full bg-white shadow sm:rounded-lg">
       <div className="flex flex-col md:flex-row justify-evenly">
         <StatsCount count={confirmed} label="Confirmed" isLoading={isLoading} />
         <StatsCount count={recovered} label="Recovered" isLoading={isLoading} />
