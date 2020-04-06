@@ -18,7 +18,7 @@ const Country = () => {
 
   return status === "loading" || data ? (
     <Layout>
-      <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
+      <h1 className="px-6 text-3xl font-bold text-gray-900 sm:px-0 md:text-4xl">
         {data?.Country}
       </h1>
       <div className="mt-8 lg:mt-16">
