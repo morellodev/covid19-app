@@ -13,6 +13,7 @@ const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
       loadingOption={{ maskColor: "#f7fafc" }}
       style={{ height: "60vh" }}
       option={{
+        textStyle: { fontFamily: "Inter var" },
         grid: {
           left: 20,
           right: 20,
