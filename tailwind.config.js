@@ -12,5 +12,5 @@ module.exports = {
     backgroundColor: ["responsive", "hover", "focus", "active"],
     borderWidth: ["responsive", "last", "hover", "focus"]
   },
-  plugins: []
+  plugins: [require("@tailwindcss/ui")]
 };

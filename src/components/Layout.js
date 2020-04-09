@@ -2,11 +2,9 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen pt-16 bg-gray-100 lg:pt-0">
+    <div className="min-h-screen pt-16 bg-gray-50 lg:pt-0">
       <Header />
-      <div className="container max-w-6xl py-8 mx-auto sm:px-6 lg:py-16">
-        {children}
-      </div>
+      <div className="container py-8 mx-auto max-w-7xl sm:px-6">{children}</div>
     </div>
   );
 };

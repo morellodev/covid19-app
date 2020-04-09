@@ -1,4 +1,5 @@
 import CountryChart from "../../components/CountryChart";
+import Flag from "react-flags";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import { useQuery } from "react-query";
@@ -18,9 +19,20 @@ const Country = () => {
 
   return status === "loading" || data ? (
     <Layout>
-      <h1 className="px-6 text-3xl font-bold text-gray-900 sm:px-0 md:text-4xl">
-        {data?.Country}
-      </h1>
+      {data && (
+        <div className="flex items-center px-6 sm:px-0">
+          <div className="flex-shrink-0 w-10">
+            <Flag
+              basePath="/assets/img/flags"
+              format="svg"
+              name={data.CountryCode}
+            />
+          </div>
+          <h1 className="ml-4 text-3xl font-bold text-gray-900 md:text-4xl">
+            {data.Country}
+          </h1>
+        </div>
+      )}
       <div className="mt-8 lg:mt-16">
         <CountryChart
           confirmed={data?.Confirmed}

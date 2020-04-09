@@ -9,7 +9,7 @@ module.exports = {
         ? {
             content: ["./src/**/*.js"],
             defaultExtractor: (content) =>
-              content.match(/[\w-/:]+(?<!:)/g) || [],
+              content.match(/[\w-/.:]+(?<!:)/g) || [],
             whitelist: []
           }
         : false

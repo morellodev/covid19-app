@@ -30,7 +30,7 @@ const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
         tooltip: {
           trigger: "axis"
         },
-        legend: { data: ["Confirmed", "Recovered", "Deaths"] },
+        legend: { data: ["Confirmed", "Recovered", "Deceased"] },
         series: [
           {
             data: confirmed?.map((data) => data.Cases),
@@ -44,7 +44,7 @@ const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
           },
           {
             data: deaths?.map((data) => data.Cases),
-            name: "Deaths",
+            name: "Deceased",
             type: "line"
           }
         ]

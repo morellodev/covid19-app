@@ -2,7 +2,7 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <header className="fixed inset-x-0 top-0 flex items-center bg-gray-100 border-b-2 border-gray-200 lg:border-b-0 lg:static z-100">
+    <header className="fixed inset-x-0 top-0 z-50 flex items-center border-b-2 border-gray-200 bg-gray-50 lg:border-b-0 lg:static">
       <div className="relative w-full max-w-screen-xl px-6 mx-auto">
         <div className="flex flex-col justify-center h-16 lg:h-24 lg:border-b-2 lg:border-gray-200">
           <div className="flex items-center -mx-6">
@@ -12,9 +12,9 @@ const Header = () => {
             <div className="flex flex-grow lg:w-3/4 xl:w-4/5">
               <div className="w-full lg:px-6 lg:w-3/4 xl:px-12"></div>
               <div className="hidden px-6 lg:flex lg:items-center lg:justify-end lg:w-1/4">
-                <div className="flex items-center justify-start text-gray-500">
+                <div className="flex items-center justify-start text-gray-400">
                   <a
-                    className="flex items-center block mr-5 transition duration-200 ease-in-out hover:text-gray-700"
+                    className="flex items-center block mr-5 transition duration-200 ease-in-out hover:text-gray-600"
                     href="https://github.com/dennismorello/covid19-app"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const Header = () => {
                     </svg>
                   </a>
                   <a
-                    className="flex items-center block transition duration-200 ease-in-out hover:text-gray-700"
+                    className="flex items-center block transition duration-200 ease-in-out hover:text-gray-600"
                     href="https://twitter.com/dennismorello"
                     target="_blank"
                     rel="noopener noreferrer"

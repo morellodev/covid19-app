@@ -15,12 +15,14 @@ const Home = () => {
 
   return (
     <Layout>
-      <StatsGlobal
-        confirmed={data?.Global.TotalConfirmed}
-        recovered={data?.Global.TotalRecovered}
-        deaths={data?.Global.TotalDeaths}
-        isLoading={status === "loading"}
-      />
+      <div className="lg:mt-8">
+        <StatsGlobal
+          confirmed={data?.Global.TotalConfirmed}
+          recovered={data?.Global.TotalRecovered}
+          deaths={data?.Global.TotalDeaths}
+          isLoading={status === "loading"}
+        />
+      </div>
       <div className="mt-8 lg:mt-16">
         <CountriesDataTable
           data={data?.Countries}

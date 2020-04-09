@@ -1,3 +1,4 @@
+import Flag from "react-flags";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 
@@ -32,22 +33,32 @@ const CountriesDataTable = ({ data, isLoading }) => {
       return (
         <tr
           key={country.CountryCode}
-          className="transition duration-200 ease-in-out cursor-pointer last:border-b-0 hover:bg-gray-100"
+          className="transition duration-200 ease-in-out cursor-pointer hover:bg-gray-50"
           onClick={onRowClicked}
         >
-          <td className="px-6 py-4 text-left text-gray-900 border-b border-gray-200">
-            {country.Country}
+          <td className="px-6 py-4 text-left border-b border-gray-200">
+            <div className="flex items-center">
+              <div className="flex-shrink-0 w-10 h-10">
+                <Flag
+                  basePath="/assets/img/flags"
+                  className="w-10 h-10 rounded-full"
+                  format="svg"
+                  name={country.CountryCode}
+                />
+              </div>
+              <div className="ml-4">{country.Country}</div>
+            </div>
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right border-b border-gray-200 variant-tabular-nums">
             {totalConfirmed}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right border-b border-gray-200 variant-tabular-nums">
             {totalRecovered}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right border-b border-gray-200 variant-tabular-nums">
             {totalDeaths}
           </td>
-          <td className="px-6 py-4 text-right text-gray-900 border-b border-gray-200 variant-tabular-nums">
+          <td className="px-6 py-4 text-right border-b border-gray-200 variant-tabular-nums">
             {mortality}
           </td>
         </tr>
@@ -63,19 +74,19 @@ const CountriesDataTable = ({ data, isLoading }) => {
           <table className="min-w-full">
             <thead>
               <tr>
-                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-600 uppercase border-b border-gray-200 bg-gray-50">
+                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                   Country
                 </th>
-                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-600 uppercase border-b border-gray-200 bg-gray-50">
+                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                   Confirmed
                 </th>
-                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-600 uppercase border-b border-gray-200 bg-gray-50">
+                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                   Recovered
                 </th>
-                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-600 uppercase border-b border-gray-200 bg-gray-50">
+                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                   Deceased
                 </th>
-                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-600 uppercase border-b border-gray-200 bg-gray-50">
+                <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                   Mortality
                 </th>
               </tr>

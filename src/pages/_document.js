@@ -3,7 +3,7 @@ import Document, { Head, Main, NextScript } from "next/document";
 export default class CustomDocument extends Document {
   render() {
     return (
-      <html lang="en-US" className="antialiased bg-gray-100">
+      <html lang="en-US" className="antialiased bg-gray-50">
         <Head>
           <meta charSet="UTF-8" />
           <meta
