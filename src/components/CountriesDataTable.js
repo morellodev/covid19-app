@@ -41,7 +41,7 @@ const CountriesDataTable = ({ data, isLoading }) => {
               <div className="flex-shrink-0 w-10 h-10">
                 <Flag
                   basePath="/assets/img/flags"
-                  className="w-10 h-10 rounded-full"
+                  className="object-cover w-10 h-10 rounded-full"
                   format="svg"
                   name={country.CountryCode}
                 />
