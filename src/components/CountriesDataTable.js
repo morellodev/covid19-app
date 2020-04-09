@@ -2,9 +2,9 @@ import Flag from "react-flags";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 
-const { format: numberFormat } = new Intl.NumberFormat();
+const numberFormatter = new Intl.NumberFormat();
 
-const { format: percentFormat } = new Intl.NumberFormat(undefined, {
+const percentFormatter = new Intl.NumberFormat(undefined, {
   style: "percent",
   maximumFractionDigits: 2
 });
@@ -21,11 +21,11 @@ const CountriesDataTable = ({ data, isLoading }) => {
 
   const renderRow = useCallback(
     (country) => {
-      const totalConfirmed = numberFormat(country.TotalConfirmed);
-      const totalRecovered = numberFormat(country.TotalRecovered);
-      const totalDeaths = numberFormat(country.TotalDeaths);
+      const totalConfirmed = numberFormatter.format(country.TotalConfirmed);
+      const totalRecovered = numberFormatter.format(country.TotalRecovered);
+      const totalDeaths = numberFormatter.format(country.TotalDeaths);
       const mortality = country.TotalConfirmed
-        ? percentFormat(country.TotalDeaths / country.TotalConfirmed)
+        ? percentFormatter.format(country.TotalDeaths / country.TotalConfirmed)
         : "–";
 
       const onRowClicked = () => navigateToCountry(country.Slug);

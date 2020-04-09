@@ -1,6 +1,6 @@
 import ReactEcharts from "echarts-for-react";
 
-const { format: dateFormat } = new Intl.DateTimeFormat(undefined, {
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
   year: "numeric",
   month: "long",
   day: "numeric"
@@ -22,7 +22,9 @@ const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
         },
         xAxis: {
           type: "category",
-          data: confirmed?.map((data) => dateFormat(new Date(data.Date)))
+          data: confirmed?.map((data) =>
+            dateFormatter.format(new Date(data.Date))
+          )
         },
         yAxis: {
           type: "value"
