@@ -21,9 +21,10 @@ const Country = () => {
     <Layout>
       {data && (
         <div className="flex items-center px-6 sm:px-0">
-          <div className="flex-shrink-0 w-10">
+          <div className="flex-shrink-0 w-10 h-10">
             <Flag
               basePath="/assets/img/flags"
+              className="object-contain w-10 h-10"
               format="svg"
               name={data.CountryCode}
             />
