@@ -9,6 +9,7 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 const CountryChart = ({ confirmed, recovered, deaths, isLoading }) => {
   return (
     <ReactEcharts
+      opts={{ renderer: "svg" }}
       showLoading={isLoading}
       loadingOption={{ maskColor: "#f7fafc" }}
       style={{ height: "60vh" }}
