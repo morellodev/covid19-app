@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 const getUrl = () => `/api/covid/summary`;
 
 const Home = () => {
-  const { data, status } = useQuery(getUrl(), async (url) => {
+  const { data, status } = useQuery(getUrl, async (url) => {
     const res = await fetch(url);
     const data = await res.json();
 

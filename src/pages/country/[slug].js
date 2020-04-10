@@ -10,12 +10,15 @@ const getUrl = (countrySlug) => `/api/covid/${countrySlug}`;
 const Country = () => {
   const router = useRouter();
 
-  const { data, status } = useQuery(getUrl(router.query.slug), async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
+  const { data, status } = useQuery(
+    router.query.slug && getUrl(router.query.slug),
+    async (url) => {
+      const res = await fetch(url);
+      const data = await res.json();
 
-    return data;
-  });
+      return data;
+    }
+  );
 
   return status === "loading" || data ? (
     <Layout>
