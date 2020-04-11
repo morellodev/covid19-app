@@ -2,22 +2,16 @@ import CountryChart from "../../components/CountryChart";
 import Flag from "react-flags";
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import { fetchCovidDataByCountry } from "../../api/covid";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
-
-const getUrl = (countrySlug) => `/api/covid/${countrySlug}`;
 
 const Country = () => {
   const router = useRouter();
 
   const { data, status } = useQuery(
-    router.query.slug && getUrl(router.query.slug),
-    async (url) => {
-      const res = await fetch(url);
-      const data = await res.json();
-
-      return data;
-    }
+    router.query.slug && [fetchCovidDataByCountry.name, router.query.slug],
+    (key, countrySlug) => fetchCovidDataByCountry(countrySlug)
   );
 
   return status === "loading" || data ? (
